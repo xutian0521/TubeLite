@@ -1398,12 +1398,19 @@
     </script>
 
 
+
     <!-- javaScripts
                 ================================================== -->
     <script src="assets/js/framework.js"></script>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/simplebar.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/axios.min.js"></script>
+    <script>
+        $(document).ready( () => {
+            axios.get('/video/getVideoBanner',{ baseURL:'http://web.peakchao.top:250'}).then(resp => console.log(resp));
+        });
+    </script>
 
 </body>
 
