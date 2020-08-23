@@ -629,10 +629,7 @@
                             <span class="icon-feather-x btn-box-close"
                                 uk-toggle="target: #video-box ; cls: video-resized-hedden uk-animation-slide-left"></span>
 
-                            <div class="embed-video">
-                                <iframe src="https://www.youtube.com/embed/pQN-pnXPaVg" frameborder="0"
-                                    uk-video="automute: true" allowfullscreen uk-responsive></iframe>
-                            </div>
+                                <video :src="detail.source" controls="true"></video>
                         </div>
 
                         <div class="video-info mt-3">
@@ -1187,7 +1184,42 @@
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/simplebar.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/vue.js"></script>
 
+    <script src="assets/js/axios.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    
+    <script>
+        var vue = new Vue({
+            el:"#wrapper",
+            data: {
+                detail:""
+            },
+            created() {
+                console.log("created");
+                this.init();
+            },
+            mounted(){
+                console.log("mounted");
+            },
+            methods: {
+            init: function() {
+                
+    
+                let id = getQueryString("id");
+                console.log(id);
+                axios.get("/api/Movie/detail?id="+ id)
+                    .then(response => {
+                        console.log(response)
+                        this.detail = response.data.content;
+                    })
+                    .catch((error) =>{
+                        console.log(error);
+                    });
+                }
+              }
+        });
+    </script>
 </body>
 
 </html>
