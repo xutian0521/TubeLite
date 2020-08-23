@@ -706,7 +706,7 @@
                             <a :href="'single-video.html?id=' + item.id" class="video-post">
                                 <!-- Blog Post Thumbnail -->
                                 <div class="video-post-thumbnail">
-                                    <span class="video-post-count">1.4M</span>
+                                    <span class="video-post-count">{{item.viewCount}} views</span>
                                     <span class="video-post-time">23:00</span>
                                     <span class="play-btn-trigger"></span>
                                     <!-- option menu -->
@@ -734,11 +734,11 @@
 
                                 <!-- Blog Post Content -->
                                 <div class="video-post-content">
-                                    <h3> How to create a basic Sticky HTML element using CSS </h3>
+                                    <h3>{{item.title}}</h3>
                                     <img src="assets/images/avatars/avatar-3.jpg" alt="">
                                     <span class="video-post-user">Jonathan Madano</span>
-                                    <span class="video-post-views">531k views</span>
-                                    <span class="video-post-date"> 2 weeks ago </span>
+                                    <span class="video-post-views">{{item.viewCount}} views</span>
+                                    <span class="video-post-date"> {{item.date}} </span>
                                 </div>
                             </a>
                         </li>
